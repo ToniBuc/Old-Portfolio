@@ -1,0 +1,140 @@
+body {
+    background-color: #1e1d1d;
+}
+#wrapper{
+    width:100%;
+}
+#main {
+    width:35%;
+    float:right;
+    text-align: right;
+    text-shadow: 10px 10px 6px black;
+    padding-top: 150px;
+    margin-right:15%;
+}
+#subMain1 {
+    width: 100%;
+    display: inline-flex;
+    height:80px;
+}
+#avatar {
+    border: 5px solid white;
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 40px;
+    box-shadow: 10px 10px 17px black;
+}
+#linkIcons{
+    width:40%;
+    float:left;
+    height:100%;
+}
+    #linkIcons a {
+        color: white;
+        text-shadow: 7px 7px 6px black;
+        font-size:30px;
+        padding-left:50px;
+        text-decoration: none;
+    }
+#para {
+    width: 60%;
+    font-style: italic;
+    float: right;
+    margin-top: 10px;
+    text-shadow: 8px 8px 4px black;
+}
+#marqueeDiv {
+    margin-top:50px;
+    width:35%;
+    float:left;
+    margin-left:15%;
+}
+:root {
+  --marquee-width: 35vw;
+  --marquee-height: 80vh;
+  --marquee-elements-displayed: 5;
+  --marquee-element-width: calc(
+    var(--marquee-width) / var(--marquee-elements-displayed)
+  );
+  --marquee-element-height: calc(
+      var(--marquee-height) / var(--marquee-elements-displayed)
+  );
+  --marquee-animation-duration: calc(var(--marquee-elements) * 1s);
+}
+.marquee {
+    width: var(--marquee-width);
+    height: var(--marquee-height);
+    background-color: #1e1d1d;
+    color: #eee;
+    overflow: hidden;
+    position: relative;
+}
+.marquee:before,
+.marquee:after {
+  position: absolute;
+  top: 0;
+  width: 15rem;
+  height: 100%;
+  content: "";
+  z-index: 1;
+}
+    .marquee:before {
+        top: 0;
+        background: linear-gradient(to bottom, #1e1d1d 0%, transparent 25%);
+    }
+    .marquee:after {
+        bottom: 0;
+        background: linear-gradient(to top, #1e1d1d 0%, transparent 25%);
+    }
+.marquee-content {
+  list-style: none;
+  height: 100%;
+  animation: scrolling var(--marquee-animation-duration) linear infinite;
+}
+@keyframes scrolling {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(
+      calc(-1 * var(--marquee-element-height) * var(--marquee-elements))
+    );
+  }
+}
+.marquee-content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: var(--marquee-element-width);
+    height: var(--marquee-element-height);
+    max-height: 100%;
+    font-size: 100px;
+    white-space: nowrap;
+    text-shadow: 10px 10px 6px black;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 8px;
+  }
+  :root {
+    --marquee-width: 40vw;
+    --marquee-height: 80vh;
+    --marquee-elements-displayed: 3;
+  }
+  #main {
+      width:30vw;
+  }
+  #para {
+      display:none;
+  }
+  #linkIcons{
+    display: inline;
+    width: 10%;
+    float:left;
+}
+}
